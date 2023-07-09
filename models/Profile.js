@@ -1,9 +1,15 @@
 const mongoose = require('mongoose')
 
-const profuleSchema = new mongoose.Schema({
+const profileSchema = new mongoose.Schema({
     userName: {
       type: String,
       required: true
+    },
+    firstName: {
+      type: String,
+    },
+    lastName: {
+      type: String,
     },
     emailAddress: {
       type: String,
@@ -13,7 +19,11 @@ const profuleSchema = new mongoose.Schema({
       type: String,
       default: ''
     },
+    getsUpdates: {
+      type: Boolean,
+      default: false
+    }
    
 })
 
-module.exports = mongoose.model('Profile', breadSchema)
+module.exports = mongoose.model('Profile', profileSchema)
