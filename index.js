@@ -4,7 +4,6 @@ const cors = require('cors')
 require('dotenv').config()
 
 const profileRoutes = require('./routes/Profile')
-
 const app = express()
 
 //middlewares
