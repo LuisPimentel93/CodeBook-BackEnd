@@ -21,7 +21,18 @@ try {
 }
 }
 
+async function deleteProfileById(req, res) {
+    try {
+        const { id } = req.params
+        await Profile.findByIdAndDelete(id)
+        res.status(204).json({ 'message': 'bread deleted' })
+    } catch (error) {
+        console.log('error deleting Profile:', error)
+        res.json({ 'message': 'error deleting Profile' })
+    }
+}
 module.exports = {
     getAllProfiles,
-    createProfile
+    createProfile,
+    deleteProfileById
 }
