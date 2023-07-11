@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const{
     getAllProfiles,
-    createProfile
+    createProfile,
+    deleteProfileById
 } = require('../controllers/Profile')
 
 // GET / get all Profiles
@@ -13,7 +14,7 @@ router.post('/', createProfile)
 
 router.put('/:id', )
 // GET / get all profile by id
-router.delete('/:id',  )
+router.delete('/:id', deleteProfileById  )
 // GET / get all profile by id
 
 
