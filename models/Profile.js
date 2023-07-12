@@ -34,7 +34,7 @@ const profileSchema = new mongoose.Schema({
 profileSchema.pre("save", function (next) {
   const user = this
 
-  if (this.isModified("password") || this.isNew) {
+  if (this.isModified("password",) || this.isNew) {
     bcrypt.genSalt(10, function (saltError, salt) {
       if (saltError) {
         return next(saltError)
@@ -54,6 +54,7 @@ profileSchema.pre("save", function (next) {
   }
 })
 
+
 profileSchema.methods.comparePassword = function(password, callback) {
   bcrypt.compare(password, this.password, function(error, isMatch) {
     if (error) {
@@ -63,5 +64,7 @@ profileSchema.methods.comparePassword = function(password, callback) {
     }
   })
 }
+
+
 
 module.exports = mongoose.model('Profile', profileSchema)
