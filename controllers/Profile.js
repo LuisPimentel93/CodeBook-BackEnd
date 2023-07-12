@@ -1,3 +1,4 @@
+const { unstable_renderSubtreeIntoContainer } = require('react-dom')
 const Profile = require('../models/Profile')
 
 async function getAllProfiles(req, res) {
@@ -5,11 +6,22 @@ async function getAllProfiles(req, res) {
         const profile = await Profile.find()
         res.json(profile)
     } catch (error) {
-        console.log('error fetching profiles:', error)
+        console.log('error fetching Profiles:', error)
         res.json({ 'message': 'error fetching Profiles' })
     }
 }
 
+async function getProfileById( req, res){
+    try {
+        const { id } = req.params
+        const profile = await Profile.findById(id)
+        res.json(profile)
+    } catch (error) {
+        console.log('error finding this Profile')
+        res.json({ 'message': 'error finding this Profile'})
+        
+    }
+}
 async function createProfile(req, res) {
 try {
     if (!req.body.image) req.body.image = undefined
@@ -19,6 +31,18 @@ try {
     console.log('error creating Profile:', error)
     res.json({ 'message': 'error creating Profile' })
 }
+}
+
+async function updateProfileById( req,res ) {
+    try {
+        const { id } = req.params
+        if (!req.body.image) req.body.image = undefined
+        await Profile.findByIdAndUpdate(id, req.body)
+        res.status(204).json({ 'message': 'Profile updated'})
+    } catch (error) {
+        console.log('error updating Profile:', error)
+        res.json({ 'message': 'error updating Profile'})
+    }
 }
 
 async function deleteProfileById(req, res) {
@@ -34,5 +58,7 @@ async function deleteProfileById(req, res) {
 module.exports = {
     getAllProfiles,
     createProfile,
-    deleteProfileById
+    deleteProfileById,
+    updateProfileById,
+    getProfileById
 }
