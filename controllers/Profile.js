@@ -11,7 +11,17 @@ async function getAllProfiles(req, res) {
     }
 }
 
-
+async function getProfileById( req, res){
+    try {
+        const { id } = req.params
+        const profile = await Profile.findById(id)
+        res.json(profile)
+    } catch (error) {
+        console.log('error finding this Profile')
+        res.json({ 'message': 'error finding this Profile'})
+        
+    }
+}
 async function createProfile(req, res) {
 try {
     if (!req.body.image) req.body.image = undefined
@@ -49,5 +59,6 @@ module.exports = {
     getAllProfiles,
     createProfile,
     deleteProfileById,
-    updateProfileById
+    updateProfileById,
+    getProfileById
 }
