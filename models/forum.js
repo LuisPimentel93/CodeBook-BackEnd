@@ -9,15 +9,12 @@ const forumSchema = new mongoose.Schema({
       type: String,
       default: false
     },
-    Date: {
-      type: Number,
-      timestamps: true
-    },
     Body: {
       type: String,
       default: false
-
     } 
+},{
+  timestamps: true
 })
 
 module.exports = mongoose.model('Forum', forumSchema)
