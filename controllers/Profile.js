@@ -1,4 +1,3 @@
-const { unstable_renderSubtreeIntoContainer } = require('react-dom')
 const Profile = require('../models/Profile')
 
 async function getAllProfiles(req, res) {
