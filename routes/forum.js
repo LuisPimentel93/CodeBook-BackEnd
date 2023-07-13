@@ -1,11 +1,11 @@
-const router = require('express').Router()
+const router = require('express').Router();
 
 const {
-    getAllForuns, 
-    getForunsById,
-    creatForums,
-    updateForumsById,
-    deleteForumsById
+    getAllForums,
+    createForum,
+    deleteForumById,
+    updateForumById,
+    getForumById
    
 } = require ('../controllers/Forum')
 
@@ -13,15 +13,15 @@ const {
 router.get('/', getAllForums)
 
 //Get / :id get bread by id
-router.get('/:id', getForumsById)
+router.get('/:id', getForumById)
 
-//POST/ creat Bread
-router.post('/', creatForums)
+//POST/ create Bread
+router.post('/', createForum)
 
 //PUT /:id update bread by id 
-router.put('/:id', updateForumsById)
+router.put('/:id', updateForumById)
 
 //DELETE /:id delete bread by id 
-router.delete('/:id', deleteForumsById)
+router.delete('/:id', deleteForumById)
 
 module.exports = router
