@@ -4,6 +4,8 @@ const cors = require('cors')
 require('dotenv').config()
 
 const profileRoutes = require('./routes/Profile')
+const forumRoutes = require('./routes/Forum')
+//add routs here
 const app = express()
 
 //middlewares
@@ -12,6 +14,7 @@ app.use(cors())
 
 //routes
 app.use('/profile', profileRoutes)
+app.use('/forum', forumRoutes)
 
 
 const PORT = process.env.PORT || 8080
