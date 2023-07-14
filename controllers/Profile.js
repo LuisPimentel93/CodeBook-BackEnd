@@ -10,7 +10,7 @@ async function getAllProfiles(req, res) {
     }
 }
 
-async function getProfileById( req, res){
+async function getProfileById(req, res) {
     try {
         const { id } = req.params
         const profile = await Profile.findById(id)
