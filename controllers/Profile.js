@@ -10,6 +10,19 @@ async function getAllProfiles(req, res) {
     }
 }
 
+async function getProfileByEmail( req, res){
+    const { emailAddress, _id } = req.body;
+    try {
+        const profile = await Profile.findOne({emailAddress:`${emailAddress}`})
+        console.log(profile)
+        return res.json(profile)
+    } catch (error) {
+        console.log('error fetching profile', error)
+        res.json({'message': 'error fetching profile'})
+    }
+    
+}
+
 async function getProfileById( req, res){
     try {
         const { id } = req.params
@@ -59,5 +72,6 @@ module.exports = {
     createProfile,
     deleteProfileById,
     updateProfileById,
-    getProfileById
+    getProfileById,
+    getProfileByEmail
 }
