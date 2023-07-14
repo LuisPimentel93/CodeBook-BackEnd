@@ -4,13 +4,18 @@ const{
     createProfile,
     deleteProfileById,
     updateProfileById,
-    getProfileById
+    getProfileById,
+    getProfileByEmail
 } = require('../controllers/Profile')
 
 // GET / get all Profiles
 router.get('/', getAllProfiles)
+// GET / get one profile by email
+router.get('/login',getProfileByEmail)
+
 // GET / get all profile by id
 router.get('/:id',getProfileById )
+
 // POST / create profile
 router.post('/', createProfile)
 
