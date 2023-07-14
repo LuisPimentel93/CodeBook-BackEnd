@@ -16,5 +16,4 @@ const forumSchema = new mongoose.Schema({
 },{
   timestamps: true
 })
-
 module.exports = mongoose.model('Forum', forumSchema)
