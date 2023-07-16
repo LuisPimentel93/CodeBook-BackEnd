@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 //routes
-app.use('/profile', profileRoutes)
+app.use('/Profile', profileRoutes)
 app.use('/forum', forumRoutes)
 
 
