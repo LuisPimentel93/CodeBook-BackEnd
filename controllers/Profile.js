@@ -14,7 +14,7 @@ async function getProfileByEmail( req, res){
     const { emailAddress, _id } = req.body;
     try {
         const profile = await Profile.findOne({emailAddress:`${emailAddress}`})
-        console.log(profile)
+        console.log('we are her', profile)
         return res.json(profile)
     } catch (error) {
         console.log('error fetching profile', error)

@@ -12,7 +12,7 @@ const {
 router.get('/', getAllProfiles)
 
 // GET / get one profile by email
-router.get('/login',getProfileByEmail)
+// router.get('/login',getProfileByEmail)
 // POST 
 router.post('/login',getProfileByEmail)
 
